@@ -1,0 +1,65 @@
+﻿@model Crud_Application.Models.userinsert
+@{
+    ViewBag.Title = "reg_pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>reg_pageload</h2>
+
+<div>
+    @using (Html.BeginForm("reg_click", "User_Reg", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div><label>Name</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+
+
+        <div><label>Email</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+        <div><label>Mobile Number</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Mobileno)
+            @Html.ValidationMessageFor(m => m.Mobileno)
+        </div>
+
+        <div><label>Country</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Country)
+            @Html.ValidationMessageFor(m => m.Country)
+        </div>
+
+        <div><label>Photo</label></div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+
+        <div><label>Username</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Username)
+            @Html.ValidationMessageFor(m => m.Username)
+        </div>
+
+        <div><label>Password</label></div>
+        <div>
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+
+        <div><label>ConfirmPassword</label></div>
+        <div>
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+
+        <div>
+            <input type="submit" value="Register" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+    }
+</div>

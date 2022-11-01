@@ -1,0 +1,45 @@
+﻿@model Crud_Application.Models.profilecls
+@{
+    ViewBag.Title = "Profileload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profileload</h2>
+<div>
+    @using (Html.BeginForm("profile_update", "Profile", FormMethod.Post))
+    {
+        <div><label>Name</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+
+        <div><label>Email</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Emai)
+        </div>
+
+        <div><label>Mobile Number</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Mobileno)
+        </div>
+
+        <div><label>Country</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.Country)
+        </div>
+
+        <div>
+            <img src="@Url.Content(Model.Image)" alt="No Image" height="300px" width="250" />
+        </div>
+
+        <div>
+            <input type="submit" value="Update" />
+            @Html.DisplayFor(m => m.msg);
+        </div>
+
+        <div>
+            @Html.ActionLink("Go To Home", "Home", "User_Log")
+        </div>
+    }
+</div>
+

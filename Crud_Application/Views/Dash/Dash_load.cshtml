@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Crud_Application.User_Reg>
+@{
+    ViewBag.Title = "Dash_load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Details</h2>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            MobileNumber
+        </th>
+        <th>
+            Country
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Emai)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mobileno)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Country)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "profile_update","Profile", item,null) |
+        @Html.ActionLink("Delete", "Profile_delete", new { id = item.id }) |
+        
+    </td>
+
+</tr>
+    }
+
+</table>
+
+

@@ -1,0 +1,29 @@
+﻿@model Crud_Application.Models.Loginclass
+@{
+    ViewBag.Title = "login_page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Login</h2>
+<div>
+    @using (Html.BeginForm("login_click", "User_Log", FormMethod.Post))
+    {
+        <div><label>User Name</label></div>
+        <div>
+            @Html.TextBoxFor(m => m.uname)
+            @Html.ValidationMessageFor(m => m.uname)
+        </div>
+
+        <div><label>Password</label></div>
+        <div>
+            @Html.PasswordFor(m => m.pwd)
+            @Html.ValidationMessageFor(m => m.pwd)
+        </div>
+
+        <div>
+            <input type="submit" value="Login" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+    }
+</div>
+
